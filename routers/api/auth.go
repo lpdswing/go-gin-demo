@@ -5,8 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lpdswing/go-gin-demo/models"
 	"github.com/lpdswing/go-gin-demo/pkg/e"
+	"github.com/lpdswing/go-gin-demo/pkg/logging"
 	"github.com/lpdswing/go-gin-demo/pkg/util"
-	"log"
 	"net/http"
 )
 
@@ -42,7 +42,8 @@ func GetAuth(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			//log.Println(err.Key, err.Message)
+			logging.Error(err.Key, err.Message)
 		}
 	}
 

@@ -13,28 +13,6 @@ import (
 
 //获取多个文章标签
 func GetTags(c *gin.Context) {
-	//name := c.Query("name")
-	//maps := make(map[string]interface{})
-	//data := make(map[string]interface{})
-	//
-	//if name != ""{
-	//	maps["name"] = name
-	//}
-	//var state int = -1
-	//if arg := c.Query("state");arg != ""{
-	//	state = com.StrTo(arg).MustInt()
-	//	maps["state"] = state
-	//}
-	//fmt.Println(maps)
-	//code := e.SUCCESS
-	//data["lists"] = models.GetTags(util.GetPage(c), setting.PageSize, maps)
-	//data["total"] = models.GetTagTotal(maps)
-	//
-	//c.JSON(http.StatusOK, gin.H{
-	//	"code":code,
-	//	"msg":e.GetMsg(code),
-	//	"data":data,
-	//})
 
 	name := c.Query("name")
 
