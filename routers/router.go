@@ -2,7 +2,9 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/lpdswing/go-gin-demo/middleware/jwt"
 	"github.com/lpdswing/go-gin-demo/pkg/setting"
+	"github.com/lpdswing/go-gin-demo/routers/api"
 	v1 "github.com/lpdswing/go-gin-demo/routers/api/v1"
 )
 
@@ -12,8 +14,10 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 	gin.SetMode(setting.RunMode)
+	r.GET("/auth", api.GetAuth)
 
 	apiv1 := r.Group("/api/v1")
+	apiv1.Use(jwt.JWT())
 	{
 		apiv1.GET("/tags", v1.GetTags)
 		apiv1.POST("/tags", v1.AddTag)
